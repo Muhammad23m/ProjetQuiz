@@ -59,6 +59,7 @@ public class Reponses {
     }
 
     public boolean getResultat() {
-        return false;
+        return resultat;
     }
+
 }
