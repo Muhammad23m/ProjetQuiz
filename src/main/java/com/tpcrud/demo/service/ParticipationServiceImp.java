@@ -18,7 +18,7 @@ public class ParticipationServiceImp implements ParticipationService{
     @Override
     public Integer calculerScore(Participation participation) {
         Integer score = 0;
-        for (Map.Entry<Long, Boolean> entry : participation.getReponses().entrySet()) {
+        for (Map.Entry<Long, Boolean> entry : participation.getResultat().entrySet()) {
             if (entry.getValue()) {
                 score++;
             }
@@ -28,12 +28,12 @@ public class ParticipationServiceImp implements ParticipationService{
 
     @Override
     public Participation creer(Participation participation) {
-        return null;
+        return participationRepository.save(participation);
     }
 
     @Override
     public List<Participation> lire() {
-        return null;
+        return participationRepository.findAll();
     }
 
 }

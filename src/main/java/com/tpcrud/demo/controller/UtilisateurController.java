@@ -2,14 +2,16 @@ package com.tpcrud.demo.controller;
 
 import com.tpcrud.demo.modele.Utilisateur;
 import com.tpcrud.demo.service.UtilisateurService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/utilisateur")
 @AllArgsConstructor
+@RequestMapping("/utilisateur")
 public class UtilisateurController {
 
     private final UtilisateurService utilisateurService;
@@ -20,7 +22,6 @@ public class UtilisateurController {
      */
     @PostMapping("/create")
     public  Utilisateur create(@RequestBody Utilisateur utilisateur){
-        // Crée un nouvel utilisateur à partir des données de la requête.
         return utilisateurService.creer(utilisateur);
     }
     /**
@@ -29,7 +30,6 @@ public class UtilisateurController {
      */
     @GetMapping("/read")
     public List<Utilisateur> read(){
-        // Lit tous les utilisateurs de la base de données.
         return utilisateurService.lire();
     }
     /**
@@ -40,7 +40,6 @@ public class UtilisateurController {
      */
     @PutMapping("/update/{id}")
     public Utilisateur update(@PathVariable Long id,@RequestBody Utilisateur utilisateur){
-        // Met à jour l'utilisateur dans la base de données avec les données de la requête.
         return utilisateurService.modifier(id, utilisateur);
     }
     /**
@@ -50,7 +49,6 @@ public class UtilisateurController {
      */
     @DeleteMapping("/delete/{id}")
     public  String delete(@PathVariable long id){
-        // Supprime l'utilisateur de la base de données avec l'ID donné.
         return utilisateurService.supprimer(id);
     }
 }

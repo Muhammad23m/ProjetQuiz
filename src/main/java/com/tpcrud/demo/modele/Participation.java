@@ -22,7 +22,7 @@ public class Participation {
 
     private Integer score;
 
-    private static Map<Long, Boolean> reponses = new HashMap<>();
+    private static Map<Long, Boolean> resultat = new HashMap<>();
 
     public Long getQuiz() {
         return quiz;
@@ -48,12 +48,12 @@ public class Participation {
         this.score = score;
     }
 
-    public static Map<Long, Boolean> getReponses() {
-        return reponses;
+    public static Map<Long, Boolean> getResultat() {
+        return resultat;
     }
 
-    public void setReponses(Map<Long, Boolean> reponses) {
-        this.reponses = reponses;
+    public void setResultat(Map<Long, Boolean> resultat) {
+        this.resultat = resultat;
     }
 
 
