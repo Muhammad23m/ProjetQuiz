@@ -1,15 +1,19 @@
 package com.tpcrud.demo.service;
 import com.tpcrud.demo.modele.Participation;
 import com.tpcrud.demo.repository.ParticipationRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Map;
 
 @Service
 public class ParticipationServiceImp implements ParticipationService{
 
-    private ParticipationRepository participationRepository;
+    private final ParticipationRepository participationRepository;
+
+    public ParticipationServiceImp(ParticipationRepository participationRepository) {
+        this.participationRepository = participationRepository;
+    }
 
     @Override
     public Integer calculerScore(Participation participation) {
@@ -21,4 +25,16 @@ public class ParticipationServiceImp implements ParticipationService{
         }
         return score;
     }
+
+    @Override
+    public Participation creer(Participation participation) {
+        return null;
+    }
+
+    @Override
+    public List<Participation> lire() {
+        return null;
+    }
+
 }
+

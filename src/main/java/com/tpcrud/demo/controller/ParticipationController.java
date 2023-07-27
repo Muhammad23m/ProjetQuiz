@@ -2,6 +2,7 @@ package com.tpcrud.demo.controller;
 
 import com.tpcrud.demo.modele.Participation;
 import com.tpcrud.demo.repository.ParticipationRepository;
+import com.tpcrud.demo.service.ParticipationService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -13,18 +14,18 @@ import java.util.List;
 @AllArgsConstructor
 public class ParticipationController {
 
-    private final ParticipationRepository participationRepository;
+    private final ParticipationService participationService;
 
     // Create a participation
     @PostMapping("/create")
-    List<Participation> read(){
-        return participationRepository.lire();
+    public Participation create(@RequestBody Participation participation){
+        return participationService.creer(participation);
     }
 
-    // Find all participations
-    @GetMapping("/participations")
-    public List<Participation> findAllParticipations() {
-        return participationRepository.findAll();
+    // Find all participation
+    @GetMapping("/read")
+    public List<Participation> read() {
+        return participationService.lire();
     }
 
 }

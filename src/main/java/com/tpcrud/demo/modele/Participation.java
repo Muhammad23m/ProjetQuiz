@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import java.util.Map;
 import java.util.HashMap;
-import java.util.List;
+
 
 @Data
 @Entity
@@ -15,6 +15,7 @@ public class Participation {
 
     @Column(name="id_quiz")
     private Long quiz;
+
 
     @Column(name = "id_utilisateur")
     private Long utilisateur;

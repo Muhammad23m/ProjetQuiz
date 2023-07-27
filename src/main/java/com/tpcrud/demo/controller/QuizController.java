@@ -40,7 +40,6 @@ public class QuizController {
      */
     @PutMapping("/update/{id}")
     public Quiz Update(@PathVariable long id, @RequestBody Quiz quiz){
-        // Met à jour le quiz dans la base de données avec les données de la requête.
         return quizService.modifier(id, quiz);
     }
     /**
