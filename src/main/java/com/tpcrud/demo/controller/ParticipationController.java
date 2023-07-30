@@ -21,7 +21,6 @@ public class ParticipationController {
     public Participation create(@RequestBody Participation participation){
         return participationService.creer(participation);
     }
-
     // Find all participation
     @GetMapping("/read")
     public List<Participation> read() {

@@ -20,7 +20,6 @@ public class QuestionsController {
      */
     @PostMapping("/create")
     public Questions create(@RequestBody Questions questions){
-        // Crée une nouvelle question à partir des données de la requête.
         return questionsService.creer(questions);
     }
     /**
@@ -29,7 +28,6 @@ public class QuestionsController {
      */
     @GetMapping("/read")
     public List<Questions> read(){
-        // Lit toutes les questions de la base de données.
         return questionsService.lire();
     }
     /**
@@ -40,7 +38,6 @@ public class QuestionsController {
      */
     @PutMapping("/update/{id}")
     public Questions update(@PathVariable long id,@RequestBody Questions questions){
-        // Met à jour la question dans la base de données avec les données de la requête.
         return questionsService.modifier(id,questions);
     }
     /**
@@ -50,7 +47,6 @@ public class QuestionsController {
      */
     @DeleteMapping("/delete/{id}")
     public String delete(@PathVariable long id){
-        // Supprime la question de la base de données avec l'ID donné.
         return questionsService.supprimer(id);
     }
 

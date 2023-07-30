@@ -20,7 +20,6 @@ public class QuizController {
      */
     @PostMapping("/create")
     public Quiz create(@RequestBody Quiz quiz){
-        // Crée un nouveau quiz à partir des données de la requête.
         return quizService.creer(quiz);
     }
     /**
@@ -29,7 +28,6 @@ public class QuizController {
      */
     @GetMapping("/read")
     public List <Quiz> read(){
-        // Lit tous les quizzes de la base de données.
         return quizService.lire();
     }
     /**
@@ -49,7 +47,6 @@ public class QuizController {
      */
     @DeleteMapping("/delete")
     public String delete(@PathVariable long id){
-        // Supprime le quiz de la base de données avec l'ID donné.
         return quizService.supprimer(id);
     }
 }
