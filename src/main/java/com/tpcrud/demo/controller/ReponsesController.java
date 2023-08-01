@@ -20,7 +20,6 @@ public class ReponsesController {
      */
     @PostMapping("/create")
     public Reponses create(@RequestBody Reponses reponses){
-        // Crée une nouvelle réponse à partir des données de la requête.
         return reponsesService.creer(reponses);
     }
     /**
@@ -29,7 +28,6 @@ public class ReponsesController {
      */
     @GetMapping("/read")
     public List<Reponses> read(){
-        // Lit toutes les réponses de la base de données.
         return reponsesService.lire();
     }
     /**
@@ -40,7 +38,6 @@ public class ReponsesController {
      */
     @PutMapping("/update/{id}")
     public Reponses update(@PathVariable long id,@RequestBody Reponses reponses){
-        // Met à jour la réponse dans la base de données avec les données de la requête.
         return reponsesService.modifier(id, reponses);
     }
     /**
@@ -50,7 +47,6 @@ public class ReponsesController {
      */
     @DeleteMapping("/delete")
     public String delete(@PathVariable long id){
-        // Supprime la réponse de la base de données avec l'ID donné.
         return reponsesService.supprimer(id);
     }
 }
