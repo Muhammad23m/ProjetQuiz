@@ -1,5 +1,7 @@
 package com.tpcrud.demo.modele;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -58,5 +60,7 @@ public class Questions {
     }
 
     @OneToMany(mappedBy = "questions", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("questions")
+    //@JsonIgnore
     private List<Reponses> reponses;
 }

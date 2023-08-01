@@ -1,11 +1,13 @@
 package com.tpcrud.demo.modele;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.util.List;
 
 @Entity
+@Data
 public class Quiz {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,10 +18,11 @@ public class Quiz {
     private String catQuiz;
 
     @OneToMany(mappedBy = "quiz", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnoreProperties("quiz")
     private List<Questions> questions;
 
     @ManyToOne(cascade = CascadeType.MERGE)
-    @JoinColumn(name = "id_utilisateur", nullable = false)
+    @JoinColumn(name = "id_utilisateur")
     private Utilisateur utilisateur;
 
     public Quiz(Utilisateur utilisateur) {
@@ -60,5 +63,6 @@ public class Quiz {
     public String getCatQuiz() {
         return catQuiz;
     }
+
 }
 

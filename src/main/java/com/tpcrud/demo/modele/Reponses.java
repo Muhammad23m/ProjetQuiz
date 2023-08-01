@@ -1,6 +1,10 @@
 package com.tpcrud.demo.modele;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
+
+import java.util.List;
+
 @Entity
 public class Reponses {
     @Id
@@ -59,6 +63,10 @@ public class Reponses {
     }
 
     public boolean getResultat() {
-        return false;
+        return resultat;
     }
+
+    @OneToMany(mappedBy = "reponses", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<QuestionReponse> questionReponses;
 }
+

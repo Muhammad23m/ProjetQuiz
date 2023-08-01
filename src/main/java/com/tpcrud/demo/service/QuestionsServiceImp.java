@@ -13,7 +13,6 @@ public class QuestionsServiceImp implements QuestionsService{
     public QuestionsServiceImp(QuestionsRepository questionsRepository) {
         this.questionsRepository = questionsRepository;
     }
-
     @Override
     public Questions creer(Questions questions) {
         return questionsRepository.save(questions);
